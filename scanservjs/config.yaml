@@ -1,0 +1,38 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Scanservjs
+version: "3.0.3"
+slug: scanservjs
+description: Runs scanservjs
+url: "https://github.com/Jonas-Sander/ha-addons/tree/main/scanservjs"
+#image: "sbs20/scanservjs:v3.0.3"
+# image: "sbs20/scanservjs"
+# RP: arm64
+# PC: amd64
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+# init: true
+init: false
+#usb: true
+full_access: true
+ports:
+  8080/tcp: 8080
+webui: "http://[HOST]:[PORT:8080]/"
+watchdog: "http://[HOST]:[PORT:8080]/"
+panel_admin: true
+panel_icon: "mdi:scanner"
+panel_title: Scanservjs
+ingress: true
+ingress_port: 8080
+# host_network: true
+map:
+  - share:rw
+  - config:rw
+  - ssl:ro
+# options:
+#   message: "Hello world..."
+# schema:
+#   message: "str?"
